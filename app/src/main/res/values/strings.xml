@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">MCU Quiz</string>
+
+    <!-- Main layout and java -->
+    <string name="background_description">Background image that contains some of the most well known Marvel characters</string>
+    <string name="title_description">The Marvel Cinematic Universe logo</string>
+    <string name="start_text1">The</string>
+    <string name="start_text2">Quiz</string>
+    <string name="start_button">Start</string>
+
+    <!-- Questions layout and java -->
+    <string name="Q1">Question 1:</string>
+    <string name="Q1_text">First appearing in 2013\'s Thor: The Dark World, which Infinity Stone is red in colour?</string>
+    <string name="Q1A1">The Space Stone</string>
+    <string name="Q1A2">The Reality Stone</string>
+    <string name="Q1A3">The Time Stone</string>
+    <string name="Q1A4">The Power Stone</string>
+
+    <string name="Q2">Question 2:</string>
+    <string name="Q2_text">What is the name of the fictional African country ruled by King T\'Challa AKA The Black Panther?</string>
+    <string name="Q2_hint">Answer</string>
+    <string name="Q2_answer1">Kingdom of Wakanda</string>
+    <string name="Q2_answer2">Wakanda</string>
+
+    <string name="Q3">Question 3:</string>
+    <string name="Q3_text">Which metal poisons Tony Stark when he uses it as the core for his Arc Reactor in Iron Man 1 and 2?</string>
+    <string name="Q3A1">Vibranium</string>
+    <string name="Q3A2">Platinum</string>
+    <string name="Q3A3">Palladium</string>
+    <string name="Q3A4">Uranium</string>
+
+    <string name="Q4">Question 4:</string>
+    <string name="Q4_text">Which of the following artifacts appear in the 2016 Doctor Strange movie (multiple answers)?</string>
+    <string name="Q4A1">Vaulting Boots of Valtor</string>
+    <string name="Q4A2">Wand of Watoomb</string>
+    <string name="Q4A3">Cloak of Levitation</string>
+    <string name="Q4A4">Dragonfang</string>
+
+    <string name="Q5">Question 5:</string>
+    <string name="Q5_text">What was the name of the elite group of soldiers led by Captain America during World War II in The First Avenger?</string>
+    <string name="Q5A1">The Howling Commandos</string>
+    <string name="Q5A2">The Shrieking Rangers</string>
+    <string name="Q5A3">The Barking Guardsmen</string>
+    <string name="Q5A4">The Roaring Warriors</string>
+
+    <string name="Q6">Question 6:</string>
+    <string name="Q6_text">In the first Guardians of the Galaxy movie, who do the team bring the orb to in the mining colony of Knowhere?</string>
+    <string name="Q6A1">The Broker</string>
+    <string name="Q6A2">The Punisher</string>
+    <string name="Q6A3">The Banker</string>
+    <string name="Q6A4">The Collector</string>
+
+    <string name="Q7">Question 7:</string>
+    <string name="Q7_text">What was the nickname of Steve Roger\'s childhood best friend James Buchanan Barnes who would later become the Winter Soldier?</string>
+    <string name="Q7_hint">Answer</string>
+    <string name="Q7_answer">Bucky</string>
+
+    <string name="Q8">Question 8:</string>
+    <string name="Q8_text">Who was the original Ant-Man that also developed the suit and the technology behind it?</string>
+    <string name="Q8A1">Scott Lang</string>
+    <string name="Q8A2">Hank Pym</string>
+    <string name="Q8A3">Darren Cross</string>
+    <string name="Q8A4">Howard Stark</string>
+
+    <string name="Q9">Question 9:</string>
+    <string name="Q9_text">What was the name of the set of legal documents designed to regulate the activities of enhanced individuals in the MCU?</string>
+    <string name="Q9A1">The Latveria Agreement</string>
+    <string name="Q9A2">The Superhuman Registration Act</string>
+    <string name="Q9A3">The Sokovia Accords</string>
+    <string name="Q9A4">The Mutant Control Act</string>
+
+    <string name="Q10">Question 10:</string>
+    <string name="Q10_text">Which of these features are NOT included in the suit given to Peter Parker in Spiderman: Homecoming (multiple answers)?</string>
+    <string name="Q10A1">Jet Pack</string>
+    <string name="Q10A2">Instant Kill</string>
+    <string name="Q10A3">Spider Drone</string>
+    <string name="Q10A4">Invisibility</string>
+
+    <string name="finish_quiz">Finish</string>
+    <string name="dialog_finish_quiz">Are you sure that you want to submit your current answers?</string>
+    <string name="dialog_yes">Yes</string>
+    <string name="dialog_no">No</string>
+
+    <!-- Score layout and java -->
+    <string name="score_text">Your score:</string>
+
+    <string name="score_out_of">10</string>
+    <string name="score_circle">A circle containing your score</string>
+
+    <string name="reset_button">Retry Quiz</string>
+    <string name="answers_button">See Answers</string>
+    <string name="dialog_see_answers">Are you sure that you want to see the answers before you retry the quiz?</string>
+
+    <!-- Answers layout and java -->
+    <string name="answers_text">Answers:</string>
+    <string name="A1">1.</string>
+    <string name="A2">2.</string>
+    <!-- Parentheses added to indicate that a partial answer is accepted here -->
+    <string name="A2_text">(Kingdom of) Wakanda</string>
+    <string name="A3">3.</string>
+    <string name="A4">4.</string>
+    <string name="A5">5.</string>
+    <string name="A6">6.</string>
+    <string name="A7">7.</string>
+    <string name="A8">8.</string>
+    <string name="A9">9.</string>
+    <string name="A10">10.</string>
+    <string name="answer_correct">A tick indicating that this answer is correct</string>
+    <string name="answer_wrong">A cross indicating that this answer is incorrect</string>
+
+</resources>
