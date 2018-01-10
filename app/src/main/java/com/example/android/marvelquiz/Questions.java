@@ -16,10 +16,45 @@ import java.util.Arrays;
 
 public class Questions extends AppCompatActivity {
 
+    private RadioGroup question1;
+    private EditText question2;
+    private RadioGroup question3;
+    private CheckBox question4A1;
+    private CheckBox question4A2;
+    private CheckBox question4A3;
+    private CheckBox question4A4;
+    private RadioGroup question5;
+    private RadioGroup question6;
+    private EditText question7;
+    private RadioGroup question8;
+    private RadioGroup question9;
+    private CheckBox question10A1;
+    private CheckBox question10A2;
+    private CheckBox question10A3;
+    private CheckBox question10A4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
+
+        // Initialise all of the used View objects
+        question1 = findViewById(R.id.question1);
+        question2 = findViewById(R.id.question2);
+        question3 = findViewById(R.id.question3);
+        question4A1 = findViewById(R.id.question4_a1);
+        question4A2 = findViewById(R.id.question4_a2);
+        question4A3 = findViewById(R.id.question4_a3);
+        question4A4 = findViewById(R.id.question4_a4);
+        question5 = findViewById(R.id.question5);
+        question6 = findViewById(R.id.question6);
+        question7 = findViewById(R.id.question7);
+        question8 = findViewById(R.id.question8);
+        question9 = findViewById(R.id.question9);
+        question10A1 = findViewById(R.id.question10_a1);
+        question10A2 = findViewById(R.id.question10_a2);
+        question10A3 = findViewById(R.id.question10_a3);
+        question10A4 = findViewById(R.id.question10_a4);
     }
 
     // onClick for the FINISH button
@@ -34,48 +69,45 @@ public class Questions extends AppCompatActivity {
 
         // Question 1:
         // Use the relevant method to check that the correct radio button is selected
-        correctAnswers[0] = checkRadioGroupAnswer((RadioGroup) findViewById(R.id.question1), getString(R.string.Q1A2));
+        correctAnswers[0] = checkRadioGroupAnswer(question1, getString(R.string.Q1A2));
 
         // Question 2:
-        // Again, use the relevant method to check that the input text is correct. As there
+        // Use the relevant method to check that the input text is correct. As there
         // are two possible answers, use a logical OR between a check for each one
-        correctAnswers[1] = checkEditTextAnswer((EditText) findViewById(R.id.question2), getString(R.string.Q2_answer1))
-                || checkEditTextAnswer((EditText) findViewById(R.id.question2), getString(R.string.Q2_answer2));
+        correctAnswers[1] = checkEditTextAnswer(question2, getString(R.string.Q2_answer1)) || checkEditTextAnswer(question2, getString(R.string.Q2_answer2));
 
         // Question 3
-        correctAnswers[2] = checkRadioGroupAnswer((RadioGroup) findViewById(R.id.question3), getString(R.string.Q3A3));
+        correctAnswers[2] = checkRadioGroupAnswer(question3, getString(R.string.Q3A3));
 
         // Question 4:
         // Obtain the checked state of each of the boxes in the question and compare them to
         // the correct combination of checked boxes
         boolean[] actualChecked = new boolean[]{
-                ((CheckBox) findViewById(R.id.question4_a1)).isChecked(),
-                ((CheckBox) findViewById(R.id.question4_a2)).isChecked(),
-                ((CheckBox) findViewById(R.id.question4_a3)).isChecked(),
-                ((CheckBox) findViewById(R.id.question4_a4)).isChecked()};
+                question4A1.isChecked(), question4A2.isChecked(),
+                question4A3.isChecked(), question4A4.isChecked()
+        };
         correctAnswers[3] = checkCheckBoxesAnswer(actualChecked, new boolean[]{true, true, true, false});
 
         // Question 5
-        correctAnswers[4] = checkRadioGroupAnswer((RadioGroup) findViewById(R.id.question5), getString(R.string.Q5A1));
+        correctAnswers[4] = checkRadioGroupAnswer(question5, getString(R.string.Q5A1));
 
         // Question 6
-        correctAnswers[5] = checkRadioGroupAnswer((RadioGroup) findViewById(R.id.question6), getString(R.string.Q6A4));
+        correctAnswers[5] = checkRadioGroupAnswer(question6, getString(R.string.Q6A4));
 
         // Question 7
-        correctAnswers[6] = checkEditTextAnswer((EditText) findViewById(R.id.question7), getString(R.string.Q7_answer));
+        correctAnswers[6] = checkEditTextAnswer(question7, getString(R.string.Q7_answer));
 
         // Question 8
-        correctAnswers[7] = checkRadioGroupAnswer((RadioGroup) findViewById(R.id.question8), getString(R.string.Q8A2));
+        correctAnswers[7] = checkRadioGroupAnswer(question8, getString(R.string.Q8A2));
 
         // Question 9
-        correctAnswers[8] = checkRadioGroupAnswer((RadioGroup) findViewById(R.id.question9), getString(R.string.Q9A3));
+        correctAnswers[8] = checkRadioGroupAnswer(question9, getString(R.string.Q9A3));
 
         // Question 10
         actualChecked = new boolean[]{
-                ((CheckBox) findViewById(R.id.question10_a1)).isChecked(),
-                ((CheckBox) findViewById(R.id.question10_a2)).isChecked(),
-                ((CheckBox) findViewById(R.id.question10_a3)).isChecked(),
-                ((CheckBox) findViewById(R.id.question10_a4)).isChecked()};
+                question10A1.isChecked(), question10A2.isChecked(),
+                question10A3.isChecked(), question10A4.isChecked()
+        };
         correctAnswers[9] = checkCheckBoxesAnswer(actualChecked, new boolean[]{true, false, false, true});
 
         // Create an alert dialog box to check that the user wants to move on from the questions

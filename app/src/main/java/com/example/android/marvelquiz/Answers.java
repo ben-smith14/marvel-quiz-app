@@ -6,17 +6,71 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Answers extends AppCompatActivity {
 
+    private TextView answer1;
+    private TextView answer2;
+    private TextView answer3;
+    private TextView answer4P1;
+    private TextView answer4P2;
+    private TextView answer4P3;
+    private TextView answer5;
+    private TextView answer6;
+    private TextView answer7;
+    private TextView answer8;
+    private TextView answer9;
+    private TextView answer10P1;
+    private TextView answer10P2;
+
+    private ImageView aImg1;
+    private ImageView aImg2;
+    private ImageView aImg3;
+    private ImageView aImg4;
+    private ImageView aImg5;
+    private ImageView aImg6;
+    private ImageView aImg7;
+    private ImageView aImg8;
+    private ImageView aImg9;
+    private ImageView aImg10;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_answers);
+
+        // Initialise all of the used View objects
+        answer1 = findViewById(R.id.answer1);
+        answer2 = findViewById(R.id.answer2);
+        answer3 = findViewById(R.id.answer3);
+        answer4P1 = findViewById(R.id.answer4_part1);
+        answer4P2 = findViewById(R.id.answer4_part2);
+        answer4P3 = findViewById(R.id.answer4_part3);
+        answer5 = findViewById(R.id.answer5);
+        answer6 = findViewById(R.id.answer6);
+        answer7 = findViewById(R.id.answer7);
+        answer8 = findViewById(R.id.answer8);
+        answer9 = findViewById(R.id.answer9);
+        answer10P1 = findViewById(R.id.answer10_part1);
+        answer10P2 = findViewById(R.id.answer10_part2);
+
+        aImg1 = findViewById(R.id.answer_img1);
+        aImg2 = findViewById(R.id.answer_img2);
+        aImg3 = findViewById(R.id.answer_img3);
+        aImg4 = findViewById(R.id.answer_img4);
+        aImg5 = findViewById(R.id.answer_img5);
+        aImg6 = findViewById(R.id.answer_img6);
+        aImg7 = findViewById(R.id.answer_img7);
+        aImg8 = findViewById(R.id.answer_img8);
+        aImg9 = findViewById(R.id.answer_img9);
+        aImg10 = findViewById(R.id.answer_img10);
 
         // Retrieve the boolean array again from the intent
         Intent intent = getIntent();
@@ -45,50 +99,50 @@ public class Answers extends AppCompatActivity {
      */
     private void setAnswerStates(boolean[] correctAnswers) {
         // Question 1:
-        // Use the displayAnswerState method with the first element in the correctAnswers array
-        // and the relevant TextView/ImageView objects to change the text colour and set the image
-        // source
-        displayAnswerState(correctAnswers[0], (TextView) findViewById(R.id.answer1), (ImageView) findViewById(R.id.answer_img1));
+        // Use the displayAnswerState method with the corresponding element in the correctAnswers
+        // array and the relevant TextView/ImageView objects to change the text colour and set the
+        // image source
+        displayAnswerState(correctAnswers[0], answer1, aImg1);
 
         // Question 2
-        displayAnswerState(correctAnswers[1], (TextView) findViewById(R.id.answer2), (ImageView) findViewById(R.id.answer_img2));
+        displayAnswerState(correctAnswers[1], answer2, aImg2);
 
         // Question 3
-        displayAnswerState(correctAnswers[2], (TextView) findViewById(R.id.answer3), (ImageView) findViewById(R.id.answer_img3));
+        displayAnswerState(correctAnswers[2], answer3, aImg3);
 
         // Question 4:
         // Use the overloaded displayAnswerState method to achieve the same goal as the original
         // method but using an ArrayList of TextView objects as an parameter instead of a singular
         // TextView
         ArrayList<TextView> allCheckBoxText = new ArrayList<>();
-        allCheckBoxText.add((TextView) findViewById(R.id.answer4_part1));
-        allCheckBoxText.add((TextView) findViewById(R.id.answer4_part2));
-        allCheckBoxText.add((TextView) findViewById(R.id.answer4_part3));
-        displayAnswerState(correctAnswers[3], allCheckBoxText, (ImageView) findViewById(R.id.answer_img4));
+        allCheckBoxText.add(answer4P1);
+        allCheckBoxText.add(answer4P2);
+        allCheckBoxText.add(answer4P3);
+        displayAnswerState(correctAnswers[3], allCheckBoxText, aImg4);
 
         // Question 5
-        displayAnswerState(correctAnswers[4], (TextView) findViewById(R.id.answer5), (ImageView) findViewById(R.id.answer_img5));
+        displayAnswerState(correctAnswers[4], answer5, aImg5);
 
         // Question 6
-        displayAnswerState(correctAnswers[5], (TextView) findViewById(R.id.answer6), (ImageView) findViewById(R.id.answer_img6));
+        displayAnswerState(correctAnswers[5], answer6, aImg6);
 
         // Question 7
-        displayAnswerState(correctAnswers[6], (TextView) findViewById(R.id.answer7), (ImageView) findViewById(R.id.answer_img7));
+        displayAnswerState(correctAnswers[6], answer7, aImg7);
 
         // Question 8
-        displayAnswerState(correctAnswers[7], (TextView) findViewById(R.id.answer8), (ImageView) findViewById(R.id.answer_img8));
+        displayAnswerState(correctAnswers[7], answer8, aImg8);
 
         // Question 9
-        displayAnswerState(correctAnswers[8], (TextView) findViewById(R.id.answer9), (ImageView) findViewById(R.id.answer_img9));
+        displayAnswerState(correctAnswers[8], answer9, aImg9);
 
         // Question 10:
         // Use the overloaded method once again, but use the same ArrayList as before so that we
         // do not have to create another one. Simply override the objects in the list and remove
         // any at an index that we no longer need
-        allCheckBoxText.set(0, (TextView) findViewById(R.id.answer10_part1));
-        allCheckBoxText.set(1, (TextView) findViewById(R.id.answer10_part2));
+        allCheckBoxText.set(0, answer10P1);
+        allCheckBoxText.set(1, answer10P2);
         allCheckBoxText.remove(2);
-        displayAnswerState(correctAnswers[9], allCheckBoxText, (ImageView) findViewById(R.id.answer_img10));
+        displayAnswerState(correctAnswers[9], allCheckBoxText, aImg10);
     }
 
     /**
