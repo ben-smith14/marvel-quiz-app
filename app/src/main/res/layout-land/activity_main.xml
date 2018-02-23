@@ -24,22 +24,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="32dp"
             android:orientation="vertical">
 
             <TextView
+                style="@style/MainTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/start_text1"
-                android:textAllCaps="true"
-                android:textColor="#EF1223"
-                android:textSize="45sp"
-                android:textStyle="bold" />
+                android:text="@string/start_text1" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -49,14 +44,11 @@
                 android:src="@drawable/marvel_cinematic_universe_logo" />
 
             <TextView
+                style="@style/MainTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/start_text2"
-                android:textAllCaps="true"
-                android:textColor="#EF1223"
-                android:textSize="45sp"
-                android:textStyle="bold" />
+                android:text="@string/start_text2" />
 
         </LinearLayout>
 
@@ -67,17 +59,14 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:orientation="vertical"
-            android:paddingBottom="48dp">
+            android:paddingBottom="32dp">
 
             <Button
+                style="@style/MainButtonStyle"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:background="#EF1223"
                 android:onClick="startQuiz"
-                android:text="@string/start_button"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:text="@string/start_button" />
 
         </LinearLayout>
 

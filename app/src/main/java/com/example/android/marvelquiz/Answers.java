@@ -1,17 +1,12 @@
 package com.example.android.marvelquiz;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class Answers extends AppCompatActivity {
@@ -112,7 +107,7 @@ public class Answers extends AppCompatActivity {
 
         // Question 4:
         // Use the overloaded displayAnswerState method to achieve the same goal as the original
-        // method but using an ArrayList of TextView objects as an parameter instead of a singular
+        // method, but using an ArrayList of TextView objects as an parameter instead of a singular
         // TextView
         ArrayList<TextView> allCheckBoxText = new ArrayList<>();
         allCheckBoxText.add(answer4P1);
@@ -158,12 +153,12 @@ public class Answers extends AppCompatActivity {
         if (answerState) {
             // If the user answered the given question correctly, set the text colour to green
             // and the image source to a tick
-            answerText.setTextColor(Color.parseColor("#759a18"));
+            answerText.setTextColor(getResources().getColor(R.color.correctGreen));
             tickOrCross.setImageResource(R.drawable.tick);
         } else {
             // If the user answered the given question incorrectly, set the text colour to red
             // and the image source to a cross
-            answerText.setTextColor(Color.parseColor("#D40000"));
+            answerText.setTextColor(getResources().getColor(R.color.incorrectRed));
             tickOrCross.setImageResource(R.drawable.cross);
         }
     }
@@ -183,12 +178,12 @@ public class Answers extends AppCompatActivity {
         // text colour of each TextView in the ArrayList to reflect the answer state
         if (answerState) {
             for (TextView answerText : allText) {
-                answerText.setTextColor(Color.parseColor("#759a18"));
+                answerText.setTextColor(getResources().getColor(R.color.correctGreen));
             }
             tickOrCross.setImageResource(R.drawable.tick);
         } else {
             for (TextView answerText : allText) {
-                answerText.setTextColor(Color.parseColor("#D40000"));
+                answerText.setTextColor(getResources().getColor(R.color.incorrectRed));
             }
             tickOrCross.setImageResource(R.drawable.cross);
         }

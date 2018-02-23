@@ -6,6 +6,9 @@
     tools:context="com.example.android.marvelquiz.MainActivity">
 
     <!-- Background image -->
+
+    <!-- Placed background in nodpi folder to prevent scaling, which
+     was causing the app to lag -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,14 +29,11 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/MainTitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/start_text1"
-            android:textAllCaps="true"
-            android:textColor="#EF1223"
-            android:textSize="45sp"
-            android:textStyle="bold" />
+            android:text="@string/start_text1" />
 
         <ImageView
             android:layout_width="match_parent"
@@ -43,30 +43,24 @@
             android:src="@drawable/marvel_cinematic_universe_logo" />
 
         <TextView
+            style="@style/MainTitleText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/start_text2"
-            android:textAllCaps="true"
-            android:textColor="#EF1223"
-            android:textSize="45sp"
-            android:textStyle="bold" />
+            android:text="@string/start_text2" />
 
     </LinearLayout>
 
     <!-- Start button -->
     <Button
         android:id="@+id/start_button"
+        style="@style/MainButtonStyle"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="8dp"
+        android:layout_marginBottom="16dp"
         android:onClick="startQuiz"
-        android:padding="16dp"
-        android:text="@string/start_button"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:text="@string/start_button" />
 
 </RelativeLayout>

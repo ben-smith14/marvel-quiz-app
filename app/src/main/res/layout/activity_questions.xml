@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- To prevent the app focusing directly on the EditText field when
+ first opening and when its keyboard is closed, we use the
+ descendantFocusability attribute and focusableInTouchMode attribute -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0E0E0"
+    android:background="@color/greyBackground"
     android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
     android:focusableInTouchMode="true"
     tools:context="com.example.android.marvelquiz.Questions">
 
@@ -15,26 +20,20 @@
         android:orientation="vertical">
 
         <!-- Question 1 -->
-
         <TextView
+            style="@style/QuestionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:background="@drawable/rounded_background"
-            android:padding="8dp"
-            android:text="@string/Q1"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/Q1" />
 
         <TextView
+            style="@style/QuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/Q1_text"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="@string/Q1_text" />
 
         <RadioGroup
             android:id="@+id/question1"
@@ -46,6 +45,7 @@
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/q1a1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -53,6 +53,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q1a2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -60,6 +61,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q1a3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -67,6 +69,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q1a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Q1A4"
@@ -75,27 +78,21 @@
         </RadioGroup>
 
         <!-- Question 2 -->
-
         <TextView
+            style="@style/QuestionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_background"
-            android:padding="8dp"
-            android:text="@string/Q2"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/Q2" />
 
         <TextView
+            style="@style/QuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/Q2_text"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="@string/Q2_text" />
 
         <EditText
             android:id="@+id/question2"
@@ -110,27 +107,21 @@
             android:textSize="16sp" />
 
         <!-- Question 3 -->
-
         <TextView
+            style="@style/QuestionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_background"
-            android:padding="8dp"
-            android:text="@string/Q3"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/Q3" />
 
         <TextView
+            style="@style/QuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/Q3_text"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="@string/Q3_text" />
 
         <RadioGroup
             android:id="@+id/question3"
@@ -142,6 +133,7 @@
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/q3a1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -149,6 +141,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q3a2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -156,6 +149,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q3a3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -163,6 +157,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q4a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Q3A4"
@@ -171,27 +166,21 @@
         </RadioGroup>
 
         <!-- Question 4 -->
-
         <TextView
+            style="@style/QuestionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_background"
-            android:padding="8dp"
-            android:text="@string/Q4"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/Q4" />
 
         <TextView
+            style="@style/QuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/Q4_text"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="@string/Q4_text" />
 
         <CheckBox
             android:id="@+id/question4_a1"
@@ -234,27 +223,21 @@
             android:textSize="16sp" />
 
         <!-- Question 5 -->
-
         <TextView
+            style="@style/QuestionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_background"
-            android:padding="8dp"
-            android:text="@string/Q5"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/Q5" />
 
         <TextView
+            style="@style/QuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/Q5_text"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="@string/Q5_text" />
 
         <RadioGroup
             android:id="@+id/question5"
@@ -266,6 +249,7 @@
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/q5a1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -273,6 +257,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q5a2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -280,6 +265,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q5a3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -287,6 +273,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q5a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Q5A4"
@@ -295,27 +282,21 @@
         </RadioGroup>
 
         <!-- Question 6 -->
-
         <TextView
+            style="@style/QuestionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_background"
-            android:padding="8dp"
-            android:text="@string/Q6"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/Q6" />
 
         <TextView
+            style="@style/QuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/Q6_text"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="@string/Q6_text" />
 
         <RadioGroup
             android:id="@+id/question6"
@@ -327,6 +308,7 @@
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/q6a1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -334,6 +316,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q6a2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -341,6 +324,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q6a3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -348,6 +332,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q6a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Q6A4"
@@ -356,27 +341,21 @@
         </RadioGroup>
 
         <!-- Question 7 -->
-
         <TextView
+            style="@style/QuestionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_background"
-            android:padding="8dp"
-            android:text="@string/Q7"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/Q7" />
 
         <TextView
+            style="@style/QuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/Q7_text"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="@string/Q7_text" />
 
         <EditText
             android:id="@+id/question7"
@@ -391,27 +370,21 @@
             android:textSize="16sp" />
 
         <!-- Question 8 -->
-
         <TextView
+            style="@style/QuestionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_background"
-            android:padding="8dp"
-            android:text="@string/Q8"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/Q8" />
 
         <TextView
+            style="@style/QuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/Q8_text"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="@string/Q8_text" />
 
         <RadioGroup
             android:id="@+id/question8"
@@ -423,6 +396,7 @@
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/q8a1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -430,6 +404,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q8a2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -437,6 +412,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q8a3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -444,6 +420,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q8a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Q8A4"
@@ -452,27 +429,21 @@
         </RadioGroup>
 
         <!-- Question 9 -->
-
         <TextView
+            style="@style/QuestionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_background"
-            android:padding="8dp"
-            android:text="@string/Q9"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/Q9" />
 
         <TextView
+            style="@style/QuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/Q9_text"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="@string/Q9_text" />
 
         <RadioGroup
             android:id="@+id/question9"
@@ -484,6 +455,7 @@
             android:orientation="vertical">
 
             <RadioButton
+                android:id="@+id/q9a1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -491,6 +463,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q9a2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -498,6 +471,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q9a3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -505,6 +479,7 @@
                 android:textSize="16sp" />
 
             <RadioButton
+                android:id="@+id/q9a4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Q9A4"
@@ -513,27 +488,21 @@
         </RadioGroup>
 
         <!-- Question 10 -->
-
         <TextView
+            style="@style/QuestionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/rounded_background"
-            android:padding="8dp"
-            android:text="@string/Q10"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
+            android:text="@string/Q10" />
 
         <TextView
+            style="@style/QuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="@string/Q10_text"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:text="@string/Q10_text" />
 
         <CheckBox
             android:id="@+id/question10_a1"
@@ -578,6 +547,7 @@
         <!-- Finish Button -->
         <Button
             android:id="@+id/finish_button"
+            style="@style/MainButtonStyle"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -585,11 +555,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:onClick="finishQuiz"
-            android:padding="16dp"
-            android:text="@string/finish_quiz"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:text="@string/finish_quiz" />
 
     </LinearLayout>
 

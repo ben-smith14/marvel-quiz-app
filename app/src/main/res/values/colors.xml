@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="marvelRed">#EF1223</color>
+    <color name="marvelRedDark">#B71C1C</color>
+
+    <color name="greyBackground">#E0E0E0</color>
+
+    <color name="correctGreen">#759a18</color>
+    <color name="incorrectRed">#D40000</color>
 </resources>

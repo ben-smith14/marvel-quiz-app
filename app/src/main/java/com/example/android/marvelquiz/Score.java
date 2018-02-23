@@ -29,13 +29,17 @@ public class Score extends AppCompatActivity {
         int score = calculateScore(correctAnswers);
         scoreText.setText(String.valueOf(score));
 
-        // Display a Toast message that differs depending on the user's score
-        if (score >= 7) {
-            Toast.makeText(getApplicationContext(), "Good Job!", Toast.LENGTH_SHORT).show();
-        } else if (score >= 4) {
-            Toast.makeText(getApplicationContext(), "Nice Try!", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(getApplicationContext(), "Unlucky!", Toast.LENGTH_SHORT).show();
+        // Display a Toast message that differs depending on the user's score. Only display this
+        // message when this activity is first opened, not when switching between portrait and
+        // landscape mode
+        if (savedInstanceState == null) {
+            if (score >= 7) {
+                Toast.makeText(getApplicationContext(), "Good Job!", Toast.LENGTH_SHORT).show();
+            } else if (score >= 4) {
+                Toast.makeText(getApplicationContext(), "Nice Try!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Unlucky!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -56,7 +60,7 @@ public class Score extends AppCompatActivity {
         button.setEnabled(false);
 
         // Create an alert dialog box to check that the user wants to see the answers
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        final AlertDialog alertDialog = new AlertDialog.Builder(Score.this).create();
         alertDialog.setMessage(getString(R.string.dialog_see_answers));
 
         // Add a positive button to continue onto the Answers activity and a negative button to
@@ -75,7 +79,7 @@ public class Score extends AppCompatActivity {
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.dialog_no),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // use dismiss() to cancel the alert dialog and re-enable the button
+                        // Use dismiss() to cancel the alert dialog and re-enable the button
                         dialog.dismiss();
                         button.setEnabled(true);
                     }
@@ -98,7 +102,7 @@ public class Score extends AppCompatActivity {
         // For each element in the boolean array, add one to the score if it equals true
         for (boolean current : correctAnswers) {
             if (current) {
-                score += 1;
+                score++;
             }
         }
 

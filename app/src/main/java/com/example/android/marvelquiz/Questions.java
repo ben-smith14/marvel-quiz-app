@@ -2,16 +2,18 @@ package com.example.android.marvelquiz;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-
 import java.util.Arrays;
 
 public class Questions extends AppCompatActivity {
@@ -32,6 +34,8 @@ public class Questions extends AppCompatActivity {
     private CheckBox question10A2;
     private CheckBox question10A3;
     private CheckBox question10A4;
+
+    private boolean isKeyBoardOpen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +59,130 @@ public class Questions extends AppCompatActivity {
         question10A2 = findViewById(R.id.question10_a2);
         question10A3 = findViewById(R.id.question10_a3);
         question10A4 = findViewById(R.id.question10_a4);
+
+        // The code contained below is from the following link:
+        // https://stackoverflow.com/questions/26858884/prevent-edittext-from-focussing-after-rotation
+        // ---------------------------------------------------------------------------------------
+        // It deals with managing the the keyboard and not focusing on EditText views when
+        // transitioning between portrait -> landscape and vice versa
+        if (savedInstanceState != null && savedInstanceState.getBoolean("isKeyBoardOpen", false)) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        } else {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        }
+
+        final View activityRootView = findViewById(R.id.root_layout);
+        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                Rect r = new Rect();
+                // r will be populated with the coordinates of your view that are still visible
+                activityRootView.getWindowVisibleDisplayFrame(r);
+                int heightDiff = activityRootView.getRootView().getHeight() - (r.bottom - r.top);
+                // If more than 100 pixels, its probably a keyboard...
+                if (heightDiff > 100) {
+                    isKeyBoardOpen = true;
+                } else {
+                    isKeyBoardOpen = false;
+                }
+            }
+        });
+        // ---------------------------------------------------------------------------------------
+
+        if (savedInstanceState != null) {
+            // Retrieve the previous states of the controls before rotation of the screen and
+            // set them back to how they were
+            loadRadioState(question1, savedInstanceState.getString("question1"));
+            question2.setText(savedInstanceState.getString("question2"));
+            loadRadioState(question3, savedInstanceState.getString("question3"));
+
+            boolean[] tempBoolArray = savedInstanceState.getBooleanArray("question4");
+            if (tempBoolArray != null) {
+                question4A1.setChecked(tempBoolArray[0]);
+                question4A2.setChecked(tempBoolArray[1]);
+                question4A3.setChecked(tempBoolArray[2]);
+                question4A4.setChecked(tempBoolArray[3]);
+            }
+
+            loadRadioState(question5, savedInstanceState.getString("question5"));
+            loadRadioState(question6, savedInstanceState.getString("question6"));
+            question7.setText(savedInstanceState.getString("question7"));
+            loadRadioState(question8, savedInstanceState.getString("question8"));
+            loadRadioState(question9, savedInstanceState.getString("question9"));
+
+            tempBoolArray = savedInstanceState.getBooleanArray("question10");
+            if (tempBoolArray != null) {
+                question10A1.setChecked(tempBoolArray[0]);
+                question10A2.setChecked(tempBoolArray[1]);
+                question10A3.setChecked(tempBoolArray[2]);
+                question10A4.setChecked(tempBoolArray[3]);
+            }
+        }
+    }
+
+    /**
+     * loadRadioState uses the ID name (i.e. the ID in String form) of a RadioButton within
+     * a given RadioGroup to set that button as selected
+     *
+     * @param radioGroup   is the RadioGroup containing the RadioButtons
+     * @param buttonIdName is the ID name (i.e. the ID in String form) of the RadioButton within
+     *                     the RadioGroup that we want to select
+     */
+    private void loadRadioState(RadioGroup radioGroup, String buttonIdName) {
+        if (buttonIdName != null) {
+            int tempId = getResources().getIdentifier(buttonIdName, "id", getPackageName());
+            if (tempId != 0) {
+                radioGroup.check(tempId);
+            }
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        // If the app restarts due to a rotation of the screen, save the current state of the
+        // RadioGroups, the EditText fields and the CheckBoxes to prevent progression loss
+        savedInstanceState.putString("question1", getRadioName(question1));
+        savedInstanceState.putString("question2", question2.getText().toString());
+        savedInstanceState.putString("question3", getRadioName(question3));
+
+        boolean[] tempBoolArray = new boolean[]{
+                question4A1.isChecked(), question4A2.isChecked(),
+                question4A3.isChecked(), question4A4.isChecked()
+        };
+        savedInstanceState.putBooleanArray("question4", tempBoolArray);
+
+        savedInstanceState.putString("question5", getRadioName(question5));
+        savedInstanceState.putString("question6", getRadioName(question6));
+        savedInstanceState.putString("question7", question7.getText().toString());
+        savedInstanceState.putString("question8", getRadioName(question8));
+        savedInstanceState.putString("question9", getRadioName(question9));
+
+        tempBoolArray = new boolean[]{
+                question10A1.isChecked(), question10A2.isChecked(),
+                question10A3.isChecked(), question10A4.isChecked()
+        };
+        savedInstanceState.putBooleanArray("question10", tempBoolArray);
+
+        savedInstanceState.putBoolean("isKeyboardOpen", isKeyBoardOpen);
+
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    /**
+     * getRadioName identifies if a button has been selected within a given RadioGroup and then
+     * returns the ID name (i.e. the ID in String form) of this button if one has been selected
+     *
+     * @param radioGroup is the RadioGroup containing the RadioButtons
+     * @return the ID name (i.e. the ID in String form) of the selected button. Return null if
+     * a button has not been selected
+     */
+    private String getRadioName(RadioGroup radioGroup) {
+        int tempId = radioGroup.getCheckedRadioButtonId();
+        if (tempId != -1) {
+            return getResources().getResourceEntryName(tempId);
+        } else {
+            return null;
+        }
     }
 
     // onClick for the FINISH button
@@ -68,12 +196,10 @@ public class Questions extends AppCompatActivity {
         final boolean[] correctAnswers = new boolean[10];
 
         // Question 1:
-        // Use the relevant method to check that the correct radio button is selected
         correctAnswers[0] = checkRadioGroupAnswer(question1, getString(R.string.Q1A2));
 
         // Question 2:
-        // Use the relevant method to check that the input text is correct. As there
-        // are two possible answers, use a logical OR between a check for each one
+        // As there are two possible answers, use a logical OR between a check for each one
         correctAnswers[1] = checkEditTextAnswer(question2, getString(R.string.Q2_answer1)) || checkEditTextAnswer(question2, getString(R.string.Q2_answer2));
 
         // Question 3
@@ -111,7 +237,7 @@ public class Questions extends AppCompatActivity {
         correctAnswers[9] = checkCheckBoxesAnswer(actualChecked, new boolean[]{true, false, false, true});
 
         // Create an alert dialog box to check that the user wants to move on from the questions
-        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        final AlertDialog alertDialog = new AlertDialog.Builder(Questions.this).create();
         alertDialog.setMessage(getString(R.string.dialog_finish_quiz));
 
         // Add a positive button to continue onto the Score activity and a negative button to
@@ -119,7 +245,7 @@ public class Questions extends AppCompatActivity {
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, getString(R.string.dialog_yes),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // start the Score activity and pass it the record of correct answers
+                        // Start the Score activity and pass it the record of correct answers
                         Intent intent = new Intent(alertDialog.getContext(), Score.class);
                         intent.putExtra("correctAnswers", correctAnswers);
                         finish();
@@ -130,7 +256,7 @@ public class Questions extends AppCompatActivity {
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, getString(R.string.dialog_no),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        // use dismiss() to cancel the alert dialog and re-enable the button
+                        // Use dismiss() to cancel the alert dialog and re-enable the button
                         dialog.dismiss();
                         button.setEnabled(true);
                     }
@@ -147,16 +273,16 @@ public class Questions extends AppCompatActivity {
      * @param correctButtonText is a String that matches the text of the correct radio button
      * @return a boolean indicating if the selected answer was correct or not
      */
-    public boolean checkRadioGroupAnswer(RadioGroup radioGroup, String correctButtonText) {
+    private boolean checkRadioGroupAnswer(RadioGroup radioGroup, String correctButtonText) {
         // Include a case for if no radio buttons have been selected and return false
-        if (radioGroup.getCheckedRadioButtonId() == -1) {
+        int selectedButton = radioGroup.getCheckedRadioButtonId();
+        if (selectedButton == -1) {
             return false;
         } else {
             // If a radio button has been selected, retrieve its ID and then retrieve the actual
             // button object using this ID so that we can then retrieve its associated text
-            int selectedButton = radioGroup.getCheckedRadioButtonId();
             RadioButton radioButton = radioGroup.findViewById(selectedButton);
-            String radioButtonText = (String) radioButton.getText();
+            String radioButtonText = radioButton.getText().toString();
 
             // Check to see if the selected radio button text matches the correct answer text
             return radioButtonText.equals(correctButtonText);
@@ -171,7 +297,7 @@ public class Questions extends AppCompatActivity {
      * @param correctInputText is a String that identifies the correct answer
      * @return a boolean indicating if the input answer was correct or not
      */
-    public boolean checkEditTextAnswer(EditText editText, String correctInputText) {
+    private boolean checkEditTextAnswer(EditText editText, String correctInputText) {
         // Retrieve the text input into the view by the user
         String inputText = editText.getText().toString();
 
@@ -192,7 +318,7 @@ public class Questions extends AppCompatActivity {
      *                       box should be selected and false means a box shouldn't be selected)
      * @return a boolean indicating if the combination of selected boxes was correct or not
      */
-    public boolean checkCheckBoxesAnswer(boolean[] actualChecked, boolean[] correctChecked) {
+    private boolean checkCheckBoxesAnswer(boolean[] actualChecked, boolean[] correctChecked) {
         // Use the Arrays class to identify if the two boolean arrays are identical or not
         return Arrays.equals(actualChecked, correctChecked);
     }

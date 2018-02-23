@@ -84,6 +84,7 @@
     <!-- Score layout and java -->
     <string name="score_text">Your score:</string>
 
+    <string name="score_initial">0</string>
     <string name="score_out_of">10</string>
     <string name="score_circle">A circle containing your score</string>
 

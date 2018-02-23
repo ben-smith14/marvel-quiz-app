@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         button.setEnabled(false);
 
         // Start the Questions activity
-        Intent intent = new Intent(this, Questions.class);
+        Intent intent = new Intent(MainActivity.this, Questions.class);
         startActivity(intent);
 
         // Re-enable the button so that the user can start the quiz again once they return
