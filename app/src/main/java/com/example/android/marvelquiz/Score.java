@@ -34,11 +34,11 @@ public class Score extends AppCompatActivity {
         // landscape mode
         if (savedInstanceState == null) {
             if (score >= 7) {
-                Toast.makeText(getApplicationContext(), "Good Job!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Good Job! Your score: " + score, Toast.LENGTH_SHORT).show();
             } else if (score >= 4) {
-                Toast.makeText(getApplicationContext(), "Nice Try!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Nice Try! Your score: " + score, Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(getApplicationContext(), "Unlucky!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Unlucky! Your score: " + score, Toast.LENGTH_SHORT).show();
             }
         }
     }
