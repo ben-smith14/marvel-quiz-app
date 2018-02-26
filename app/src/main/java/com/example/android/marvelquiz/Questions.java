@@ -142,7 +142,9 @@ public class Questions extends AppCompatActivity {
         // If the app restarts due to a rotation of the screen, save the current state of the
         // RadioGroups, the EditText fields and the CheckBoxes to prevent progression loss
         savedInstanceState.putString("question1", getRadioName(question1));
-        savedInstanceState.putString("question2", question2.getText().toString());
+
+        // Use the trim method to remove any leading or trailing whitespace from the String
+        savedInstanceState.putString("question2", question2.getText().toString().trim());
         savedInstanceState.putString("question3", getRadioName(question3));
 
         boolean[] tempBoolArray = new boolean[]{
@@ -153,7 +155,7 @@ public class Questions extends AppCompatActivity {
 
         savedInstanceState.putString("question5", getRadioName(question5));
         savedInstanceState.putString("question6", getRadioName(question6));
-        savedInstanceState.putString("question7", question7.getText().toString());
+        savedInstanceState.putString("question7", question7.getText().toString().trim());
         savedInstanceState.putString("question8", getRadioName(question8));
         savedInstanceState.putString("question9", getRadioName(question9));
 
@@ -299,7 +301,7 @@ public class Questions extends AppCompatActivity {
      */
     private boolean checkEditTextAnswer(EditText editText, String correctInputText) {
         // Retrieve the text input into the view by the user
-        String inputText = editText.getText().toString();
+        String inputText = editText.getText().toString().trim();
 
         // Check that the user has input any text first and, if they have, check that it matches
         // the correct answer String, ignoring case
