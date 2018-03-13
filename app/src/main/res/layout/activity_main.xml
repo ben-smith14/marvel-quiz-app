@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.android.marvelquiz.MainActivity">
 
-    <!-- Background image -->
+    <!-- Background image, src: https://www.debenhams.com/webapp/wcs/stores/servlet/prod_10701_10001_61131+102435_-1 -->
 
     <!-- Placed background in nodpi folder to prevent scaling, which
      was causing the app to lag -->
@@ -35,6 +35,7 @@
             android:gravity="center"
             android:text="@string/start_text1" />
 
+        <!-- src: https://www.thecrimsonconnection.com/6036/entertainment/when-will-marvel-stop/ -->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -142,7 +142,8 @@ public class Answers extends AppCompatActivity {
 
     /**
      * displayAnswerState sets the text colour for the given TextView and the source for the given
-     * ImageView based on the answer state also passed to it
+     * ImageView based on the answer state also passed to it. The source of the tick and cross
+     * images is https://www.freepik.com/free-vector/check-and-cross-signs-paint-design_1136697.htm
      *
      * @param answerState is a boolean that indicates whether the user answered a specific question
      *                    correctly (true value) or incorrectly (false value)
